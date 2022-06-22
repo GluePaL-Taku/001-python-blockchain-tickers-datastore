@@ -1,4 +1,4 @@
 pymongo
 python-binance
 requests
-os
+python-dotenv
