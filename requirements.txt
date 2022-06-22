@@ -1,6 +1,4 @@
 pymongo
 binance
 requests
-Client
-ThreadedWebsocketManager
-ThreadedDepthCacheManager
+python-binance-api
