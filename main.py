@@ -10,14 +10,14 @@ try:
 except FileExistsError:
     print('exist')
         
-f = open('secret/binance_password.py','w')
-f.write("binance_api_key = '" + os.environ['X509'] +  "'")
+f = open('secret/X509.pem','w')
+f.write(os.environ['X509'])
 f.close()
 # secret end
 
 client = MongoClient(os.environ['mongouri'],
                      tls=True,
-                     tlsCertificateKeyFile='./secret/binance_password.py')
+                     tlsCertificateKeyFile='./secret/X509.pem')
 
 def get_db_handle(db_name):
     db_handle = client[db_name]
