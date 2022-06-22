@@ -3,3 +3,4 @@ python-binance
 requests
 python-dotenv
 pymongo[srv]
+pytz
