@@ -1,6 +1,7 @@
 import datetime
 from pymongo import MongoClient
 from storeData import getDataFromBinance
+import os
 
 client = MongoClient(os.environ['mongouri'],
                      tls=True,
