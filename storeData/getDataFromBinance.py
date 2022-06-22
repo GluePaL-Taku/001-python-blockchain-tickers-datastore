@@ -1,6 +1,7 @@
 # for binance
 from binance import Client, ThreadedWebsocketManager, ThreadedDepthCacheManager
 import json
+import os
 
 # # for password
 # import sys
