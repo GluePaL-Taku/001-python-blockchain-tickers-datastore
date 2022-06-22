@@ -27,5 +27,8 @@ def create_db(db_handle, collection_name, insert_data):
     collection = db_handle[collection_name]
     collection.insert_one(insert_data)
 
-binanceData = { 'date': datetime.datetime.today(), 'data': getDataFromBinance.getBinanceAllTickers() }
+t_delta = datetime.timedelta(hours=9)  # 9時間
+JST = datetime.timezone(t_delta, 'JST')  # UTCから9時間差の「JST」タイムゾーン
+now = datetime.datetime.now(JST)  # タイムゾーン付きでローカルな日付と時刻を取得
+binanceData = { 'date': now, 'data': getDataFromBinance.getBinanceAllTickers() }
 create_db(get_db_handle('data'), 'tickers', binanceData)
