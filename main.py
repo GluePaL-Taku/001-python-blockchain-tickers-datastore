@@ -2,7 +2,6 @@ import datetime
 from pymongo import MongoClient
 from storeData import getDataFromBinance
 import os
-import pytz
 
 # make secret file
 try:
@@ -28,5 +27,5 @@ def create_db(db_handle, collection_name, insert_data):
     collection = db_handle[collection_name]
     collection.insert_one(insert_data)
 
-binanceData = { 'date': datetime.datetime.now(pytz.timezone('Asia/Tokyo')), 'data': getDataFromBinance.getBinanceAllTickers() }
+binanceData = { 'date': datetime.datetime.now(), 'data': getDataFromBinance.getBinanceAllTickers() }
 create_db(get_db_handle('data'), 'tickers', binanceData)
